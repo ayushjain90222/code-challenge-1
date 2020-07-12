@@ -1,3 +1,14 @@
+<style type="text/css">
+  .border-solid-1px{
+    border: 1px solid;
+  }
+
+  .company-list{
+    display: flex; 
+    justify-content: space-between;
+  }
+</style>
+
 <div class="container py-5">
   <h3>Companies</h3>
   <%= link_to "+ Create a Company", new_company_path %><br>
@@ -7,9 +18,15 @@
     <ul class="list-group my-5">
       <% @companies.each do |company| %>
         <a href="<%= company_path(company) %>" class="list-group-item list-group-item-action">
-          <%= company.name %>
+            <div class="company-list" id = "company_<%=company.id%>">
+              <%= company.name %>
+              <%= link_to 'Delete', url_for(action: :destroy ,id: company.id), :class => "btn btn-outline-primary border-solid-1px",method: :delete, data: {confirm: "Are you sure you want to delete #{company.name}?"} %>
+              <!-- Delete the company and ask confirmation before delete -->
+          </div>
         </a>
       <% end %>
     </ul>
   <% end %>
 </div>
+
+

@@ -21,7 +21,7 @@ namespace :test_data do
                       <li>You should hire #{company.name} and nobody else</li>
                      </ul>
                      <p>We focus on providing you with a written detailed estimate for your painting making sure that you know there are no hidden costs. We also like to give you different options that meet your budget needs. Following our first visit, we help you with painting colors and setting up an upcoming date for your project.</p>"
-    company.save
+    company.save!
   end
 
 end

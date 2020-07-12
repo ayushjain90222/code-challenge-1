@@ -24,6 +24,12 @@ class CompaniesController < ApplicationController
   def edit
   end
 
+  def destroy
+    company_name = @company.name
+    @company.destroy!
+    redirect_to companies_path, notice: "Successfully Deleted #{company_name}"
+  end
+
   def update
     if @company.update(company_params)
       redirect_to companies_path, notice: "Changes Saved"
